@@ -212,7 +212,7 @@ class Person{
     private _firstName: string;
     private _lastName: string;
     private _age: number;
-   
+    
 
     constructor(fname:string, lname: string, age:number, ){
 
@@ -241,7 +241,6 @@ class Person{
 
     
 }
-
 
 let person = new Person('Virat', 'kohli', 235)
 
@@ -307,3 +306,56 @@ let emp = new Emp(1, 'Hanery Ford')
 
 console.log('EmpCode: ', emp.empCode);
 console.log('Name: ', emp.name);
+
+
+
+interface BusinessPartener {
+
+    name: string;
+    credit: number
+}
+interface Identity {
+    id: number;
+    name: string;
+}
+interface Contact{
+    email: string;
+    phone: string
+}
+//intersection types : create a new type by combining multiple existing types
+type Employee = Identity & Contact;
+type Customer = BusinessPartener & Contact;
+
+let e: Employee = {
+    id : 100,
+    name : 'john pandey',
+    email: 'john@email.com',
+    phone: '(408)-847-5684'
+}
+
+console.log("EmpInfo: ", e)
+
+
+let c: Customer = {
+    name: 'Business ltd.',
+    credit : 5000000,
+    email: 'business@email.com',
+    phone: '(301)-987-9512'
+
+}
+
+console.log('CustomerInfo: ', c)
+
+type Ins= BusinessPartener & Identity & Contact
+
+let I: Ins = {
+    id: 101,
+    name: 'Ad.dorcy',
+    email:'dorcy@email.com',
+    phone: '(087)-852-7532',
+    credit: 150000
+}
+
+console.log('Info-> ', I)
+
+
